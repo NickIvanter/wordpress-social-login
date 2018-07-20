@@ -37,13 +37,13 @@ if ( !defined( 'ABSPATH' ) ) exit;
 // --------------------------------------------------------------------
 
 $WORDPRESS_SOCIAL_LOGIN_PROVIDERS_CONFIG = ARRAY(
-	ARRAY( 
+	ARRAY(
 		"provider_id"       => "Facebook",
-		"provider_name"     => "Facebook", 
-		"require_client_id" => true, 
+		"provider_name"     => "Facebook",
+		"require_client_id" => true,
 		"callback"          => true,
-		"new_app_link"      => "https://developers.facebook.com/apps", 
-		"default_api_scope" => "email, public_profile, user_friends", 
+		"new_app_link"      => "https://developers.facebook.com/apps",
+		"default_api_scope" => "email, public_profile",
 
 		"default_network"   => true,
 		"cat"               => "socialnetworks",
