@@ -77,8 +77,8 @@ class Hybrid_Providers_Google extends Hybrid_Provider_Model_OAuth2
 		}
 
 		$this->user->profile->identifier    = (property_exists($response,'sub'))?$response->id:((property_exists($response,'sub'))?$response->id:"");
-		$this->user->profile->firstName     = (property_exists($response,'given_name'))?$response->givenName:"";
-		$this->user->profile->lastName      = (property_exists($response,'familly_name'))?$response->familyName:"";
+		$this->user->profile->firstName     = (property_exists($response,'given_name'))?$response->given_name:"";
+		$this->user->profile->lastName      = (property_exists($response,'familly_name'))?$response->family_name:"";
 		$this->user->profile->displayName   = (property_exists($response,'name'))?$response->name:"";
 		$this->user->profile->photoURL      = (property_exists($response,'picture'))?$response->picture:'';
 		$this->user->profile->profileURL    = (property_exists($response,'profile'))?$response->profile:"";
@@ -86,7 +86,7 @@ class Hybrid_Providers_Google extends Hybrid_Provider_Model_OAuth2
 		$this->user->profile->language      = (property_exists($response,'locale'))?$response->locale:'';
 		$this->user->profile->email         = (property_exists($response,'email'))?$response->email:'';
 
-		$this->user->profile->emailVerified = ($response->email_verified === true || $response->email_verified === 1);
+		$this->user->profile->emailVerified = (property_exists($response,'email_verified') && ($response->email_verified === true || $response->email_verified === 1));
 
 		return $this->user->profile;
 	}
