@@ -54,7 +54,7 @@ $WORDPRESS_SOCIAL_LOGIN_PROVIDERS_CONFIG = ARRAY(
 		"callback"          => true,
 		"require_client_id" => true,
 		"new_app_link"      => "https://console.developers.google.com", 
-		"default_api_scope" => "profile https://www.googleapis.com/auth/plus.profile.emails.read", 
+		"default_api_scope" => "https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email",
 
 		"default_network"   => true,
 		"cat"               => "socialnetworks",

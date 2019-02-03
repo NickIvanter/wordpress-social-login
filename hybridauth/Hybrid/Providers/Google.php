@@ -29,7 +29,7 @@ class Hybrid_Providers_Google extends Hybrid_Provider_Model_OAuth2
 		$this->api->api_base_url   = "https://www.googleapis.com/";
 		$this->api->authorize_url  = "https://accounts.google.com/o/oauth2/auth";
 		$this->api->token_url      = "https://accounts.google.com/o/oauth2/token";
-		$this->api->token_info_url = "https://www.googleapis.com/oauth2/v2/tokeninfo";
+		$this->api->token_info_url = "https://www.googleapis.com/oauth2/v3/tokeninfo";
 
 		// Override the redirect uri when it's set in the config parameters. This way we prevent
 		// redirect uri mismatches when authenticating with Google.
@@ -72,7 +72,7 @@ class Hybrid_Providers_Google extends Hybrid_Provider_Model_OAuth2
 
 		$response = $this->api->api( "https://www.googleapis.com/oauth2/v3/userinfo" );
 
-		if ( ! isset( $response->id ) || isset( $response->error ) ){
+		if ( ! isset( $response->sub ) || isset( $response->error ) ){
 			throw new Exception( "User profile request failed! {$this->providerId} returned an invalid response.", 6 );
 		}
 
