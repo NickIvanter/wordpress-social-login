@@ -76,7 +76,7 @@ class Hybrid_Providers_Google extends Hybrid_Provider_Model_OAuth2
 			throw new Exception( "User profile request failed! {$this->providerId} returned an invalid response.", 6 );
 		}
 
-		$this->user->profile->identifier    = (property_exists($response,'sub'))?$response->id:((property_exists($response,'sub'))?$response->id:"");
+		$this->user->profile->identifier    = (property_exists($response,'sub')?$response->sub:"");
 		$this->user->profile->firstName     = (property_exists($response,'given_name'))?$response->given_name:"";
 		$this->user->profile->lastName      = (property_exists($response,'family_name'))?$response->family_name:"";
 		$this->user->profile->displayName   = (property_exists($response,'name'))?$response->name:"";
